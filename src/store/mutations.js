@@ -10,7 +10,17 @@ export default {
   },
   REMOVE_TODO_MUTATION (state, todoID) {
     const todoToRemove = state.todos.find(todo => todo.id === todoID)
-    state.todos.splice(state.todos.indexOf(todoToRemove), 1)
+    const localStorageStateTodos = JSON.parse(localStorage.getItem('vuex')).todos
+    if (localStorageStateTodos) {
+      const localStorageStateTodo = localStorageStateTodos.find(todo => todo.id === todoID)
+      const isTaskInLocalStorageArray = localStorageStateTodos.includes(localStorageStateTodo)
+      if (!isTaskInLocalStorageArray) {
+        state.todos.splice(state.todos.indexOf(todoToRemove), 1)
+        alert('Somebody already removed it')
+      } else {
+        state.todos.splice(state.todos.indexOf(todoToRemove), 1)
+      }
+    }
   },
   FETCH_INITIAL_DATA_MUTATION (state, localStorageState) {
     state.todos = localStorageState.todos
