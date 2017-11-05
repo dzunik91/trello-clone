@@ -11,5 +11,8 @@ export default {
   REMOVE_TODO_MUTATION (state, todoID) {
     const todoToRemove = state.todos.find(todo => todo.id === todoID)
     state.todos.splice(state.todos.indexOf(todoToRemove), 1)
+  },
+  FETCH_INITIAL_DATA_MUTATION (state, localStorageState) {
+    state.todos = localStorageState.todos
   }
 }

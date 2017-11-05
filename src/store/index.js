@@ -3,8 +3,14 @@ import Vuex from 'vuex'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
+import VuexPersist from 'vuex-persist'
 
 Vue.use(Vuex)
+
+const vuexLocalStorage = new VuexPersist({
+  key: 'vuex',
+  storage: window.localStorage
+})
 
 const store = new Vuex.Store({
   state: {
@@ -19,7 +25,8 @@ const store = new Vuex.Store({
   },
   mutations,
   actions,
-  getters
+  getters,
+  plugins: [vuexLocalStorage.plugin]
 })
 
 export default store

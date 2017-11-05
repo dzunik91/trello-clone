@@ -1,12 +1,21 @@
 <template>
   <div id="app">
+    <navbar-component></navbar-component>
     <router-view/>
   </div>
 </template>
 
 <script>
+import NavbarComponent from './components/navbar-component/NavbarComponent'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    'navbar-component': NavbarComponent
+  },
+  beforeCreate () {
+    this.$store.dispatch('FETCH_DATA')
+  }
 }
 </script>
 

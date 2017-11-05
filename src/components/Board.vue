@@ -15,7 +15,7 @@
 import TodosList from './todo-lane/TodosList'
 import InProgressList from './in-progress-lane/InProgressList'
 import DoneList from './done-lane/DoneList'
-import AddButton from './add-to-do-button/AddButton'
+import AddButton from './add-to-do/AddTodo'
 
 export default {
   name: 'Board',

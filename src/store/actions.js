@@ -13,5 +13,9 @@ export default {
   },
   CHANGE_TODO_STATUS ({ commit }, todoObj) {
     commit('CHANGE_TODO_STATUS_MUTATION', todoObj)
+  },
+  FETCH_DATA ({commit}) {
+    let localStorageState = JSON.parse(localStorage.getItem('vuex'))
+    commit('FETCH_INITIAL_DATA_MUTATION', localStorageState)
   }
 }
