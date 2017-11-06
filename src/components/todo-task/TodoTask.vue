@@ -27,7 +27,7 @@ export default {
     title: String,
     status: [String, Number],
     description: [String],
-    id: [Number]
+    id: [String]
   },
   data () {
     return {
@@ -48,7 +48,7 @@ export default {
       set (statusValue) {
         this.$store.dispatch({
           type: 'CHANGE_TODO_STATUS',
-          taskID: this.id,
+          id: this.id,
           status: statusValue
         })
       }

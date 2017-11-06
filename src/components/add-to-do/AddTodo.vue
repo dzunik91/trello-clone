@@ -2,16 +2,18 @@
   <div class="add-todo-hld">
     <h2>Add a new Todo:</h2>
     <div class="task card">
+      <form v-on:submit.prevent>
         <div class="card-header">
           <input type="text" v-model="holder.title" class="form-control" placeholder="Add title">
         </div>
         <div class="card-body">
-          <input type="text" v-model="holder.description" class="form-control" placeholder="Add description">
+          <textarea v-model="holder.description" class="form-control" id="exampleTextarea" rows="3"  placeholder="Add description"></textarea>
         </div>
         <div class="card-footer">
           <button class="btn btn-primary" @click="addTodo">Add Todo</button>
         </div>
-      </div>
+      </form>
+    </div>
   </div>
 </template>
 

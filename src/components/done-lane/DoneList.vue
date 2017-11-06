@@ -6,11 +6,11 @@
     />
     <todo-task 
       v-for="task in tasksList"
-      :key="task.id"
+      :key="task._id"
       :title="task.title"
       :description="task.description"
       :status="task.status"
-      :id="task.id"
+      :id="task._id"
     />
   </div>
 </template>
