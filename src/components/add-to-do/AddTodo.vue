@@ -4,7 +4,7 @@
     <div class="task card">
       <form v-on:submit.prevent>
         <div class="card-header">
-          <input type="text" v-model="holder.title" class="form-control" placeholder="Add title">
+          <input type="text" v-model="holder.title" class="form-control" placeholder="Add title" required>
         </div>
         <div class="card-body">
           <textarea v-model="holder.description" class="form-control" id="exampleTextarea" rows="3"  placeholder="Add description"></textarea>
