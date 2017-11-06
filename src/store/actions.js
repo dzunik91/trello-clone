@@ -2,18 +2,21 @@ import { HTTP } from '../hellpers/http-comon'
 
 export default {
   ADD_TODO ({ commit }, newTodo) {
-    let todo = {
+    let todoModel = {
       title: newTodo.title,
       description: newTodo.description,
       status: 0
     }
-    HTTP.post('todos/new', todo)
-      .then(response => {
-        commit('ADD_TODO_MUTATION', todo)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    if (todoModel.title !== '') {
+      HTTP.post('todos/new', todoModel)
+        .then(response => {
+          let newTodo = response.data
+          commit('ADD_TODO_MUTATION', newTodo)
+        })
+        .catch(error => {
+          console.log(error.response)
+        })
+    }
   },
   REMOVE_TODO ({ commit }, todoID) {
     HTTP.delete(`todos/${todoID}`)

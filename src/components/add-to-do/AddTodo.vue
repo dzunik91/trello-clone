@@ -31,7 +31,8 @@ export default {
   methods: {
     addTodo () {
       this.$store.dispatch('ADD_TODO', this.holder)
-      this.holder = ''
+      this.holder.title = ''
+      this.holder.description = ''
     }
   }
 }
