@@ -13,8 +13,3 @@ npm run dev
 
 # build for production with minification files will be in /dist folder
 npm run build
-
-
-```
-
-Mikołaj Junikowski
